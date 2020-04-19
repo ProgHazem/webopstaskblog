@@ -31,4 +31,10 @@
 
 en:
   hello: 'Hello world'
-
+  post_not_found: 'Post not found'
+  post_deleted: 'Post deleted successfully'
+  comment_not_found: 'comment not found'
+  comment_deleted: 'Comment deleted successfully'
+  tag_not_found: 'Tag not found'
+  updated_success: 'Updated Success'
+  created_success: 'Created Success'
