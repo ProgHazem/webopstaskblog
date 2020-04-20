@@ -13,6 +13,7 @@ require 'action_mailer/railtie'
 require 'action_view/railtie'
 require 'action_cable/engine'
 # require 'sprockets/railtie'
+require 'rack/cors'
 require 'rails/test_unit/railtie'
 
 # Require the gems listed in Gemfile, including any gems
@@ -24,7 +25,7 @@ module BlogApi
   class Application < Rails::Application
     config.active_job.queue_adapter = :sidekiq
     config.action_controller.asset_host = 'http://localhost:3000'
-    config.middleware.use ActionDispatch::Flash
+
     config.time_zone = 'Cairo' # Your local time zone
     config.active_record.default_timezone = :local
     # Initialize configuration defaults for originally generated Rails version.
@@ -34,7 +35,15 @@ module BlogApi
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
-
+    config.middleware.use Rack::Cors do
+      allow do
+        origins '*'
+        resource '*',
+        :headers => :any,
+        :expose  => ['access-token', 'expiry', 'token-type', 'uid', 'client'],
+        :methods => [:get, :post, :options, :delete, :put]
+      end
+    end
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
