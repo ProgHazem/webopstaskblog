@@ -1,17 +1,20 @@
-# API Blog with Devise auth token which using JWT
+# To run project. open project folder and open your terminal for project path then type 🔽😄
+    docker compose up
+
+# API Blog with Devise auth token which using JWT 🔥
 * first to run this project must run bundle install then there api that task want
-    You can see the collection post man and import it your postman
-    * ### sing up 
+    You can see the collection postman and import it in your postman application to test apis.
+    * ### sing up  ®️
         this api must be post and body contains email , password, name and image with validation email must be unique and valid email and name must be exsist and password must be minumam 8 character.
 
         http://localhost:3000/auth 
     
-    * ### sing in 
+    * ### sing in 🔒
         this api must be post and body contains emal and password.
 
         http://localhost:3000/auth/sing_in
         
-    ## the upcoming api using authentication and but header which contains 3 authenticate 
+    ## the upcoming api using authentication and but header which contains 3 authenticate  👌 👌 👌
         ** access-token  client uid
     
     ## posts
@@ -64,7 +67,7 @@
         http://localhost:3000/posts/post_id/tags/:id 
              
     
-    
+    ## test case will run when run docker-compose up
     TO run the test run: 
 
     ```rspec --format documentation```
