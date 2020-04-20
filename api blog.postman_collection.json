@@ -1,0 +1,576 @@
+{
+	"info": {
+		"_postman_id": "cecf76ea-3964-4420-a8d9-c181a463b0f7",
+		"name": "api blog",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "sing up",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "hazem@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456789",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "hazem abdo",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/home/modus/Desktop/200X200.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/auth",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sing in",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "hazem@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456789",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/auth/sign_in",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"auth",
+						"sign_in"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All post",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "access-token",
+						"type": "text",
+						"value": "{{access_token}}"
+					},
+					{
+						"key": "client",
+						"type": "text",
+						"value": "{{client}}"
+					},
+					{
+						"key": "uid",
+						"type": "text",
+						"value": "{{uid}}"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/posts",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create post",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "access-token",
+						"value": "{{access_token}}",
+						"type": "text"
+					},
+					{
+						"key": "client",
+						"value": "{{client}}",
+						"type": "text"
+					},
+					{
+						"key": "uid",
+						"value": "{{uid}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"post\": {\n        \"title\": \"post 1\",\n        \"body\": \"body post 1\",\n        \"tags_attributes\": [\n            {\n                \"name\": \"C#\"\n            },\n            {\n                \"name\": \"PHP\"\n            }\n        ]\n    }\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/posts",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update post",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "access-token",
+						"type": "text",
+						"value": "{{access_token}}"
+					},
+					{
+						"key": "client",
+						"type": "text",
+						"value": "{{client}}"
+					},
+					{
+						"key": "uid",
+						"type": "text",
+						"value": "{{uid}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"post\": {\n        \"title\": \"post updated 1\",\n        \"body\": \"body updated 1\",\n        \"tags_attributes\": [\n            {\n                \"name\": \"Ruby\"\n            },\n            {\n                \"name\": \"Ruby on rails\"\n            }\n        ]\n    }\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/posts/6",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"posts",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "show post",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "access-token",
+						"type": "text",
+						"value": "{{access_token}}"
+					},
+					{
+						"key": "client",
+						"type": "text",
+						"value": "{{client}}"
+					},
+					{
+						"key": "uid",
+						"type": "text",
+						"value": "{{uid}}"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/posts/6",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"posts",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete post",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "access-token",
+						"value": "{{access_token}}",
+						"type": "text"
+					},
+					{
+						"key": "client",
+						"value": "{{client}}",
+						"type": "text"
+					},
+					{
+						"key": "uid",
+						"value": "{{uid}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/posts/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"posts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Comment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "access-token",
+						"type": "text",
+						"value": "{{access_token}}"
+					},
+					{
+						"key": "client",
+						"type": "text",
+						"value": "{{client}}"
+					},
+					{
+						"key": "uid",
+						"type": "text",
+						"value": "{{uid}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"comment\": {\n        \"body\": \"comment post 2\"\n    }\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/posts/6/comments",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"posts",
+						"6",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update comment",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "access-token",
+						"type": "text",
+						"value": "{{access_token}}"
+					},
+					{
+						"key": "client",
+						"type": "text",
+						"value": "{{client}}"
+					},
+					{
+						"key": "uid",
+						"type": "text",
+						"value": "{{uid}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"comment\": {\n        \"body\": \"hamada 2\"\n    }\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/posts/6/comments/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"posts",
+						"6",
+						"comments",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete comment",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "access-token",
+						"type": "text",
+						"value": "{{access_token}}"
+					},
+					{
+						"key": "client",
+						"type": "text",
+						"value": "{{client}}"
+					},
+					{
+						"key": "uid",
+						"type": "text",
+						"value": "{{uid}}"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/posts/6/comments/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"posts",
+						"6",
+						"comments",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update tag",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "access-token",
+						"type": "text",
+						"value": "{{access_token}}"
+					},
+					{
+						"key": "client",
+						"type": "text",
+						"value": "{{client}}"
+					},
+					{
+						"key": "uid",
+						"type": "text",
+						"value": "{{uid}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tag\": {\n        \"name\": \"Ruby on Rails\"\n    }\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/posts/6/tags/14",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"posts",
+						"6",
+						"tags",
+						"14"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "f75a9a6a-6943-4091-9a3e-b9c7b5915a61",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "81cdfb07-8abc-4867-813a-25af4a3805c7",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "74c9f5ce-b917-4804-b729-9519218ed2d0",
+			"key": "base_url",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"id": "0587919c-3553-4777-8c3b-bb49d9aebe9b",
+			"key": "access_token",
+			"value": "l9WyI_HR77LhY3nWB80QMA",
+			"type": "string"
+		},
+		{
+			"id": "2d05a925-5e7b-46c7-9370-18c8962e985a",
+			"key": "client",
+			"value": "4Xs3D06jnnPek9SJvNRBlQ",
+			"type": "string"
+		},
+		{
+			"id": "c940c7f4-4d1b-40e2-b71d-89d2188842ec",
+			"key": "uid",
+			"value": "hazem@gmail.com",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

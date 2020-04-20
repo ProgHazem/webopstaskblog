@@ -14,13 +14,14 @@ class TagsController < ApplicationController
   end
 
   private
-	def set_tag
-		@post = current_user.posts.where(id: params[:post_id]).first
-		@tag =  @post.tags.where(id: params[:id]).first
-		return render json: { errors: [I18n.t('tag_not_found')] }, status: :not_found if @tag.nil?
-	end
 
-	def tag_params
+  def set_tag
+    @post = current_user.posts.where(id: params[:post_id]).first
+    @tag = @post.tags.where(id: params[:id]).first if @post
+    return render json: { errors: [I18n.t('tag_not_found')] }, status: :not_found if @tag.nil?
+  end
+
+  def tag_params
     params.require(:tag).permit(:name, :post_id)
-	end
+  end
 end
