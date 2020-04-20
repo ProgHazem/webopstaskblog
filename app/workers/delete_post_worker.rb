@@ -7,6 +7,7 @@ class DeletePostWorker
 
   def perform(id)
     post = Post.find_by_id(id)
+    &. post
     post.destroy
   end
 end

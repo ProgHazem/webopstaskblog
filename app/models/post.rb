@@ -12,7 +12,7 @@ class Post < ApplicationRecord
   validates :tags, presence: true, on: [:create]
 
   # Callbacks
-  after_save :delete_post_after_24
+  after_create :delete_post_after_24
 
   private
 
